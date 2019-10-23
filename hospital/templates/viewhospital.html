@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Details</title>
+	<meta content="initial-scale=1.0" name="viewport">
+	<meta charset="utf-8">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/hospital_js/jquery.qrcode.js"></script>
+    <script type="text/javascript" src="/static/hospital_js/qrcode.js"></script>
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
+    <link rel="stylesheet" href="/static/hospital_css/profile_styles.css">
+    <link rel="stylesheet" href="/static/hospital_css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.checked {
+    color: orange;
+}
+</style>
+<script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        $(function(){
+            $("#id_pin_code").on('input propertychange paste',function(){
+                    var content = $("#id_pin_code").val();
+                    if(content.length === 6){
+                        var xhttp = new XMLHttpRequest();
+                        xhttp.open("GET", "http://postalpincode.in/api/pincode/"+content, false);
+
+                        xhttp.send();
+                        var response = JSON.parse(xhttp.responseText);
+                        $("#id_district").val(response.PostOffice[0].District);
+                        $("#id_state").val(response.PostOffice[0].State);
+                        $("#id_taluka").val(response.PostOffice[0].Taluk);
+                    }
+            });
+        });
+
+    </script>
+	<link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+	<link href="https://www.w3schools.com/lib/w3-theme-blue-grey.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+	     /* Always set the map height explicitly to define the size of the div
+	      * element that contains the map. */
+	     #map {
+	       height: 300px;
+	       min-width:400px;
+	       width: 700px;
+	       padding: 20px;
+	       top: 0;
+	       bottom: 0;
+	       left: 0;
+	       right: 0;
+	       margin: auto;
+
+	     }
+	     /* Optional: Makes the sample page fill the window. */
+	     html, body {
+	       height: 100%;
+	       margin: 0;
+	       padding: 0;
+	     }
+	</style>
+</head>
+<body class="w3-theme-l4">
+	<div style="min-width:400px">
+		<div class="w3-bar w3-large w3-theme-d4">
+			<span class="w3-bar-item">E-asclepius</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+		</div>
+		<div class="w3-container w3-content">
+			<p class="w3-opacity"><b></b></p>
+			<center>
+				<b></b>
+				<h1><b>Hospitals Information</b></h1>
+			</center>
+			<p></p>
+			<div class="w3-panel w3-white w3-card w3-display-container">
+				<p class="w3-text-blue">Hospital name : <span class="w3-text-black">{{hosp.hospital.user.username}}</span></p>
+				<p class="w3-text-blue">Hospital Location: <span class="w3-text-black">{{hosp.hospital.location}}</span></p>
+				<p class="w3-text-blue">Hospital Phone No : <span class="w3-text-black">{{hosp.hospital.phno}}</span></p>
+				<p class="w3-text-blue">Hospital Speciality: <span class="w3-text-black">{{hosp.hospital.speciality}}</span></p>{% if hosp.address != None %}
+				<p class="w3-text-blue">Hospital Address: <span class="w3-text-black">{{hosp.address}}</span></p>{% endif %} {% if hosp.pin_code != None %}
+				<p class="w3-text-blue">Hospital Pincode: <span class="w3-text-black">{{hosp.pin_code}}</span></p>{% endif %} {% if hosp.district != None %}
+				<p class="w3-text-blue">Hospital District: <span class="w3-text-black">{{hosp.district}}</span></p>{% endif %} {% if hosp.state != None %}
+				<p class="w3-text-blue">Hospital State: <span class="w3-text-black">{{hosp.state}}</span></p>{% endif %} {% if hosp.taluka != None %}
+				<p class="w3-text-blue">Hospital Taluka: <span class="w3-text-black">{{hosp.taluka}}</span></p>{% endif %} {% if hosp.staff_strength != None %}
+				<p class="w3-text-blue">Hospital Staff Strength: <span class="w3-text-black">{{hosp.staff_strength}}</span></p>{% endif %} {% if hosp.cost_range != None %}
+				<p class="w3-text-blue">Hospital Cost Range: <span class="w3-text-black">{{hosp.cost_range}}</span></p>{% endif %} {% if hosp.operation_facilty == True %}
+				<p class="w3-text-blue">Hospital Operation Facilty: Yes</p>{%else%}
+				<p class="w3-text-blue">Hospital Operation Facilty: No</p>{% endif %} {% if hosp.emergency_facility == True %}
+				<p class="w3-text-blue">Hospital Emergency Facility: Yes</p>{%else%}
+				<p class="w3-text-blue">Hospital Emergency Facility: No</p>{% endif %} {% if hosp.beds_count != None %}
+				<p class="w3-text-blue">Hospital Beds Count: <span class="w3-text-black">{{hosp.beds_count}}</span></p>{% endif %} {% if hosp.beds_occupied != None %}
+				<p class="w3-text-blue">Hospital Beds Occupied: <span class="w3-text-black">{{hosp.beds_occupied}}</span></p>{% endif %}
+			</div>
+		</div>
+
+		
+<div class="page-content"><!-- Your content goes here -->
+
+              {% for i in good2 %}
+
+<div class="w3-container w3-content">
+
+ <div class="w3-panel w3-white w3-card w3-display-container">
+     <p class="w3-text-blue"> Automatically Generated Review Highlights<br>
+         <span class="w3-text-black">{{i}}</span>
+     </p>
+
+ </div>
+</div>
+
+{% endfor %}
+
+              <div class="w3-container w3-content">
+
+ <div class="w3-panel w3-white w3-card w3-display-container">
+     <p class="w3-text-blue"> Review  polarity:{{sent2}}
+     </p>
+      <p class="w3-text-blue"> Review  High-Lights:{{polarity}}
+      </p>
+     <p class="w3-text-blue">
+ </div>
+</div>
+                            <div class="w3-container w3-content">
+
+ <div class="w3-panel w3-white w3-card w3-display-container">
+     <p class="w3-text-blue"> Review  polarity:
+        <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+
+<script>
+
+Highcharts.chart('container', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'Sentiment Analysis'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                style: {
+                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                }
+            }
+        }
+    },
+    series: [{
+        name: 'Polarity',
+        colorByPoint: true,
+        data: [{
+            name: 'Positive',
+            y: {{sent6}},
+            sliced: true,
+            selected: true
+        }, {
+            name: 'Negative',
+            y: {{sent5}}
+        }, {
+            name: 'Neutral',
+            y: {{sent7}}
+        }]
+    }]
+});</script>
+
+     </p>
+ </div>
+</div>
+
+               <div class="w3-container w3-content">
+
+ 
+          <div class="page-content"><!-- Your content goes here -->
+
+              {% for i in other_reviews %}
+<div class="w3-container w3-content">
+
+ <div class="w3-panel w3-white w3-card w3-display-container">
+     <p class="w3-text-blue"> Review :
+         <span class="w3-text-black">{{i.review}}</span>
+     </p>
+     <p class="w3-text-blue"> User Name:
+         <span class="w3-text-black">{{i.patient.user.username}}</span>
+     </p>
+     <p class="w3-text-blue"> Date And Time:
+         <span class="w3-text-black">{{i.date_time}}</span>
+     </p>
+
+ </div>
+</div>
+
+{% endfor %}
+
+
+          </div>
+
+
+		<div class="w3-container w3-content">
+			<div class="w3-panel w3-white w3-card w3-display-container" id="map">
+				<script>
+				  var map;
+				  function initMap() {
+				    map = new google.maps.Map(document.getElementById('map'), {
+				      center: {lat: -34.397, lng: 150.644},
+				      zoom: 20
+				    });
+				    var geocoder = new google.maps.Geocoder();
+				    var address = "{{location}}";
+				       geocoder.geocode({'address': address}, function(results, status) {
+				     if (status === 'OK') {
+				       map.setCenter(results[0].geometry.location);
+				       var marker = new google.maps.Marker({
+				         map: map,
+				         position: results[0].geometry.location
+				       });
+				     } else {
+				       alert('Geocode was not successful for the following reason: ' + status);
+				     }
+				   });
+				  }
+
+				</script>
+			</div>
+		</div>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfcmalVGItytcrgzyggxIPp2YYnmozlgQ&callback=initMap">
+		</script>
+		<div class="w3-container w3-content">
+			<div class="w3-panel w3-white w3-card w3-display-container">
+				<form action="" method="post">
+					{%csrf_token%}
+					<h1>Enter review</h1>{% if review == None %} <span>You must be logged in to continue <a href="/hospital">Login</a></span> {% elif review.review == None %} 
+					<textarea cols="120" id="" name="review_text" rows="5"></textarea> <button class="review" type="submit">Submit</button> {% else %} 
+					<textarea cols="120" id="" name="review_text" rows="5">{{review.review}}</textarea> <button class="review" type="submit">Update</button> {%endif%}
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
